@@ -12,4 +12,14 @@ router.get('/', (_, res) => {
     res.send(grades);
 });
 
+router.get('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) res.status(404).send('Grade not found');
+
+    const grade = grades.find(grade => grade.id === id);
+    if (!grade) res.status(404).send('Grade not found');
+
+    res.send(grade);
+})
+
 export default router;

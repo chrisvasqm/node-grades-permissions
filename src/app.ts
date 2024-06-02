@@ -1,5 +1,7 @@
+import cors from 'cors';
 import express from 'express';
 import 'express-async-errors';
+import helmet from 'helmet';
 import errors from './handlers/errors';
 import handleUncaughtErrors from './handlers/uncaughtErrors';
 import grades from './routes/grades';
@@ -10,6 +12,8 @@ import me from './routes/me';
 const app = express();
 
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
 
 app.use('/', home);
 app.use('/api/grades', grades);

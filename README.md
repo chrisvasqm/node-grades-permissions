@@ -1,6 +1,6 @@
 # Node Grades Permissions
 
-Demostration project to show how to make a Express API that handles permissions with sample data.
+Demostration project to show how to make a Express API that handles role-based permissions.
 
 ## Getting started
 

@@ -16,10 +16,10 @@ router.get('/', (_, res) => {
 
 router.get('/:id', roleMiddleware([Roles.ADMIN, Roles.TEACHER]), (req, res) => {
     const id = parseInt(req.params.id);
-    if (isNaN(id)) res.status(404).send('Grade not found');
+    if (isNaN(id)) return res.status(404).send('Grade not found');
 
     const grade = grades.find(grade => grade.id === id);
-    if (!grade) res.status(404).send('Grade not found');
+    if (!grade) return res.status(404).send('Grade not found');
 
     res.send(grade);
 });

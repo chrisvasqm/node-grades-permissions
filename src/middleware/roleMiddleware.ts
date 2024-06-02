@@ -4,7 +4,7 @@ import User from '../models/User';
 const roles = (roles: Roles[]) => {
     return (req, res, next) => {
         const { role } = req.body as User
-        if (!roles.includes(role)) res.status(401).send('Unauthorized');
+        if (!roles.includes(role)) return res.status(401).send('Unauthorized');
 
         next();
     }

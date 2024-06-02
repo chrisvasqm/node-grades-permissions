@@ -1,5 +1,5 @@
 import express from 'express';
-import errorHandlers from './handlers/uncaughtErrors';
+import handleUncaughtErrors from './handlers/uncaughtErrors';
 import grades from './routes/grades';
 import home from './routes/home';
 
@@ -10,7 +10,7 @@ app.use(express.json());
 app.use('/', home);
 app.use('/api/grades', grades);
 
-errorHandlers();
+handleUncaughtErrors();
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on http://localhost:${port}`));

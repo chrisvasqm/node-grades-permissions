@@ -22,6 +22,6 @@ router.get('/:id', roleMiddleware([Roles.ADMIN, Roles.TEACHER]), (req, res) => {
     if (!grade) res.status(404).send('Grade not found');
 
     res.send(grade);
-})
+});
 
 export default router;

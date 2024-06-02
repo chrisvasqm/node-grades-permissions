@@ -1,7 +1,7 @@
 import Roles from '../enums/roles';
 import User from '../models/User';
 
-const roles = (roles: Roles[]) => {
+const role = (roles: Roles[]) => {
     return (req, res, next) => {
         const { role } = req.body as User
         if (!roles.includes(role)) return res.status(401).send('Unauthorized');
@@ -10,4 +10,4 @@ const roles = (roles: Roles[]) => {
     }
 }
 
-export default roles;
+export default role;

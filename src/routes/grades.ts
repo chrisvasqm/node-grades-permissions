@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import Roles from '../enums/roles';
-import roleMiddleware from '../middleware/roleMiddleware';
+import role from '../middleware/role';
 
 const grades = [
     { id: 1, name: 'Pedro', subject: 'Math', grade: 100 },
@@ -14,7 +14,7 @@ router.get('/', (_, res) => {
     res.send(grades);
 });
 
-router.get('/:id', roleMiddleware([Roles.ADMIN, Roles.TEACHER]), (req, res) => {
+router.get('/:id', role([Roles.ADMIN, Roles.TEACHER]), (req, res) => {
     const id = parseInt(req.params.id);
     if (isNaN(id)) return res.status(404).send('Grade not found');
 

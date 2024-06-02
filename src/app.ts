@@ -5,6 +5,7 @@ import handleUncaughtErrors from './handlers/uncaughtErrors';
 import grades from './routes/grades';
 import home from './routes/home';
 import login from './routes/login';
+import me from './routes/me';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use('/', home);
 app.use('/api/grades', grades);
 app.use('/api/login', login);
+app.use('/api/me', me);
 
 handleUncaughtErrors();
 errors();

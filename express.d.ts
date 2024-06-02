@@ -2,7 +2,7 @@ import { JwtPayload } from 'jsonwebtoken';
 
 export interface DecodedUser {
     id: number,
-    username: string,
+    name: string,
     roleId: number
 }
 

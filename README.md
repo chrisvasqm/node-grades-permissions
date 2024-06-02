@@ -1,4 +1,4 @@
-# Node Grades Permissions
+# Role-Based Permissions
 
 Demostration project to show how to make a Express API that handles role-based permissions.
 

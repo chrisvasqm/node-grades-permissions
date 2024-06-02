@@ -1,10 +1,10 @@
+import { DecodedUser } from '../../express';
 import Roles from '../enums/roles';
-import User from '../models/User';
 
 const role = (roles: Roles[]) => {
     return (req, res, next) => {
-        const { roleId } = req.user as User
-        if (!roles.includes(roleId)) return res.status(401).send('Unauthorized');
+        const { roleId } = req.user as DecodedUser
+        if (!roles.includes(roleId)) return res.status(403).send('Access denied');
 
         next();
     }

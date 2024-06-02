@@ -1,7 +1,7 @@
 interface User {
     id: number
     name: string
-    role: number
+    roleId: number
 }
 
 export default User;

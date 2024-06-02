@@ -15,7 +15,7 @@ router.get('/', auth, (_, res) => {
     res.send(grades);
 });
 
-router.get('/:id', role([Roles.ADMIN, Roles.TEACHER]), (req, res) => {
+router.get('/:id', auth, role([Roles.ADMIN]), (req, res) => {
     const id = parseInt(req.params.id);
     if (isNaN(id)) return res.status(404).send('Grade not found');
 

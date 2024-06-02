@@ -6,13 +6,13 @@ import { DecodedUser } from '../../express';
 const router = Router();
 
 router.post('/', (_, res) => {
-    const payload: DecodedUser = {
+    const user: DecodedUser = {
         id: 1,
-        username: 'user',
-        roleId: 3
+        name: 'user',
+        roleId: 1
     };
 
-    const token = jwt.sign(payload, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign(user, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
     res.send({ token });
 });
 

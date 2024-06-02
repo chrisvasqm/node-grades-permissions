@@ -1,4 +1,5 @@
 import express from 'express';
+import 'express-async-errors';
 import handleUncaughtErrors from './handlers/uncaughtErrors';
 import grades from './routes/grades';
 import home from './routes/home';
@@ -11,6 +12,12 @@ app.use('/', home);
 app.use('/api/grades', grades);
 
 handleUncaughtErrors();
+
+app.use((err, req, res, next) => {
+    console.error(err.message);
+
+    res.status(500).send('Something went wrong. Please try again later');
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on http://localhost:${port}`));

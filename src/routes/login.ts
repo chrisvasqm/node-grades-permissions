@@ -1,11 +1,12 @@
 import 'dotenv/config';
 import { Router } from 'express';
 import jwt from 'jsonwebtoken';
+import { DecodedUser } from '../../express';
 
 const router = Router();
 
 router.post('/', (_, res) => {
-    const payload = {
+    const payload: DecodedUser = {
         id: 1,
         username: 'user',
         roleId: 3

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import Roles from '../enums/roles';
+import auth from '../middleware/auth';
 import role from '../middleware/role';
 
 const grades = [
@@ -10,7 +11,7 @@ const grades = [
 
 const router = Router();
 
-router.get('/', (_, res) => {
+router.get('/', auth, (_, res) => {
     res.send(grades);
 });
 
